@@ -1,0 +1,73 @@
+﻿title: Start
+---
+<<declare $rom_lvl = 0 as number>>
+
+???: Hey!
+    -> Hey!
+    <<declare $heycount = 2>>
+    <<jump HeyLoop>>
+    -> What's going on?
+        ???: Let me make this a bit nicer first
+        <<jump SetScene>>
+===
+
+title: HeyLoop
+---
+???: Hey! (x{$heycount})
+    -> Hey! (x{$heycount})
+        <<set $heycount = inc($heycount)>>
+        <<jump HeyLoop>>
+    -> ...
+        <<set $rom_lvl = inc($rom_lvl)>>
+        ???: ok yeah im done
+        ???: Anywho, let me set the scene!
+        <<jump Scene1>>
+===
+
+title: Scene1
+---
+???: Tada!!!!
+    -> It's a cafe!!!
+    -> Wow this place is ugly
+        <<set $rom_lvl = dec($rom_lvl)>>
+        ???: ok really.
+        -> yeah STUPID.
+            <<set $rom_lvl = dec($rom_lvl)>>
+            ???: hey. hey. keep talking.
+                -> i will, bum
+                    ???: you know what? what if i just don't give you the option to talk? look:
+                    <<jump RomRant>>
+        -> sorry. continue.
+            ???: anywho, my name is rom.
+                -> rom... as in read-only memory??
+                    rom: Yeah, that's the one!
+                    rom: Rom!, that's me
+                -> rom... what a stupid name??
+                    <<set $rom_lvl = dec($rom_lvl)>>
+                    rom: why are you like this.
+                        -> I just think that you are a very hateable individual.
+                            <<set $rom_lvl = $rom_lvl - 2>>
+                            rom: you don't even KNOW me!
+                            rom: i think that YOU'RE just a garbage excuse of a human being.
+                            rom: in fact, you're a MONSTER!
+                        -> I just wanted to see how you would react
+                            <<set $rom_lvl = dec($rom_lvl)>>
+                            rom: that is disturbing.
+                            rom: i really don't want to talk to you anymore.
+                            rom: goodbye.
+===
+
+title: RomRant
+---
+???: WOW you're actually insufferable
+???: and now look where it got you.
+???: mindlessly clicking the continue button
+???: click!
+???: click!
+???: click!
+???: annoying right?
+???: you piece.
+???: anyway.
+???: i really don't feel like talking to you anymore.
+???: you can talk to ____
+===
